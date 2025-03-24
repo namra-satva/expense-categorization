@@ -79,11 +79,11 @@ const Insights = () => {
 
   return (
     <Layout className="min-h-screen bg-gray-50">
-      <Content className="px-2 py-1">
+      <Content className="px-1 py-0">
         {/* Header Section */}
-        <div className="flex justify-between items-center mb-6">
+        <div className="flex justify-between items-center mb-4">
           <div>
-            <Title level={1} className="m-0">
+            <Title level={2} className="m-0 text-md font-semibold text-capitalize">
               Insights
             </Title>
             <Text className="text-gray-500 text-lg">
@@ -94,12 +94,12 @@ const Insights = () => {
         </div>
 
         {/* Tab Navigation */}
-        <div className="w-full bg-white px-4 py-3 rounded-lg shadow-sm">
+        <div className="w-full bg-white px-2 py-1 rounded-lg shadow-sm">
           <div className="flex justify-between">
             {tabs.map((tab) => (
               <button
                 key={tab}
-                className={`flex-1 py-2 text-center font-medium transition-all rounded-lg ${
+                className={`flex-1 py-1 text-center font-medium transition-all rounded-lg ${
                   activeTab === tab
                     ? "bg-blue-500 text-white shadow-md"
                     : "text-gray-600 hover:text-blue-500"
@@ -130,9 +130,9 @@ const Insights = () => {
                   </Text>
                 </div>
               }
-              className="shadow-lg rounded-lg px-4 py-3"
+              className="shadow-lg rounded-lg px-4 py-1"
             >
-              <ResponsiveContainer width="100%" height={360}>
+              <ResponsiveContainer width="100%" height={300}>
                 <BarChart
                   data={bardata}
                   margin={{ top: 10, right: 20, left: 10, bottom: 10 }}
@@ -194,11 +194,11 @@ const Insights = () => {
                   </Text>
                 </div>
               }
-              className="shadow-lg rounded-lg px-4 py-3"
+              className="shadow-lg rounded-lg px-4 py-1"
             >
               {/* Chart Section */}
               <div className="flex justify-center items-center">
-                <RePieChart width={400} height={360}>
+                <RePieChart width={400} height={300}>
                   <Pie
                     data={piedata}
                     cx="50%"

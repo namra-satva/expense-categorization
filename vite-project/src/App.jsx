@@ -81,7 +81,7 @@ function App() {
 
         {/* Main Content */}
         <Layout>
-          <Content className="p-6">
+          <Content className="px-6 py-2">
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/upload" element={<UploadStatement />} />
