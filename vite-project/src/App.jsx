@@ -12,6 +12,7 @@ import {
   LeftOutlined,
   PieChartOutlined
 } from "@ant-design/icons";
+import { ChartNoAxesColumnIncreasing, FolderCog, House, Layers,Settings,Upload, User } from 'lucide-react';
 
 import UploadStatement from "./components/UploadFile";
 import Dashboard from "./components/Dashboard";
@@ -19,7 +20,6 @@ import Transactions from "./components/Transactions";
 import Insights from "./components/Insights";
 import Categories from "./components/Categories";
 import Profile from "./components/Profile";
-import Settings from "./components/Settings";
 
 const { Sider, Content } = Layout;
 const { Title } = Typography;
@@ -30,13 +30,13 @@ function SidebarMenu() {
   const [collapsed, setCollapsed] = useState(false);
 
   const menuItems = [
-    { key: "/", icon: <DashboardOutlined />, label: "Dashboard" },
-    { key: "/upload", icon: <UploadOutlined />, label: "Upload" },
-    { key: "/transactions", icon: <TransactionOutlined />, label: "Transactions" },
-    { key: "/insights", icon: <BarChartOutlined />, label: "Insights" },
-    { key: "/categories", icon: <TagsOutlined />, label: "Categories" },
-    { key: "/profile", icon: <UserOutlined />, label: "Profile" },
-    { key: "/settings", icon: <SettingOutlined />, label: "Settings" },
+    { key: "/", icon: <House />, label: "Dashboard" },
+    { key: "/upload", icon: <Upload />, label: "Upload" },
+    { key: "/transactions", icon: <Layers />, label: "Transactions" },
+    { key: "/insights", icon: <ChartNoAxesColumnIncreasing  />, label: "Insights" },
+    { key: "/categories", icon: <FolderCog />, label: "Categories" },
+    { key: "/profile", icon: <User />, label: "Profile" },
+    { key: "/settings", icon: <Settings />, label: "Settings" },
   ];
 
   return (
@@ -58,14 +58,14 @@ function SidebarMenu() {
   selectedKeys={[location.pathname]}
   style={{
     borderRight: 0,
-    padding: "12px 10px", // Adjust padding
+    padding: "12px 0px", // Adjust padding
   }}
   className="text-lg mt-3"
   items={menuItems.map((item) => ({
     ...item,
     onClick: () => navigate(item.key), // Navigate on click
     className:
-      "flex items-center py-2 mt-4 text-xl font-normal text-gray-200 px-2 rounded-lg transition duration-200 hover:bg-blue-100",
+      "flex items-center py-4 mt-5 text-xl font-normal text-gray-200 px-2 rounded-lg transition duration-200 hover:bg-blue-100",
   }))}
 />
     </Sider>
@@ -81,7 +81,7 @@ function App() {
 
         {/* Main Content */}
         <Layout>
-          <Content className="px-6 py-2">
+          <Content className="px-3 py-1">
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/upload" element={<UploadStatement />} />

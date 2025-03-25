@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Typography, Button, Row, Col, Statistic, Progress } from 'antd';
-import { ArrowUpOutlined, ArrowDownOutlined, UploadOutlined, HomeOutlined, AreaChartOutlined, UnorderedListOutlined, AppstoreOutlined, UserOutlined, SettingOutlined } from '@ant-design/icons';
+import { ArrowUpOutlined, ArrowDownOutlined, UploadOutlined, HomeOutlined,WarningOutlined, AreaChartOutlined, UnorderedListOutlined, AppstoreOutlined, UserOutlined, SettingOutlined,CreditCardOutlined, WalletOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 const { Title, Text } = Typography;
 
@@ -28,7 +28,7 @@ const Dashboard = () => {
                 <div className="flex items-center mt-2">
                   <Title level={2} style={{ margin: 0 }}>$4,200</Title>
                   <div className="ml-2 flex items-center text-green-500">
-                    <ArrowUpOutlined />
+                    <ArrowUpOutlined style={{ color: '#52c41a', transform: 'rotate(45deg)' }}  />
                     <span className="ml-1">8.2%</span>
                   </div>
                 </div>
@@ -44,12 +44,14 @@ const Dashboard = () => {
                 <div className="flex items-center mt-2">
                   <Title level={2} style={{ margin: 0 }}>$1,850.75</Title>
                   <div className="ml-2 flex items-center text-red-500">
-                    <ArrowDownOutlined />
+                    <ArrowDownOutlined style={{ color: '#f5222d', transform: 'rotate(-45deg)' }} />
                     <span className="ml-1">3.1%</span>
                   </div>
                 </div>
                 <div className="mt-3 text-gray-500 flex items-center">
-                  <span className="text-red-500 mr-2">☑</span>
+                  <span className="text-red-500 mr-2">
+                    <CreditCardOutlined />
+                  </span>
                   12 categories this month
                 </div>
               </Card>
@@ -60,12 +62,14 @@ const Dashboard = () => {
                 <div className="flex items-center mt-2">
                   <Title level={2} style={{ margin: 0 }}>$2,349.25</Title>
                   <div className="ml-2 flex items-center text-green-500">
-                    <ArrowUpOutlined />
+                    <ArrowUpOutlined style={{ color: '#52c41a', transform: 'rotate(45deg)' }} />
                     <span className="ml-1">12.5%</span>
                   </div>
                 </div>
                 <div className="mt-3 text-gray-500 flex items-center">
-                  <span className="text-blue-500 mr-2">☑</span>
+                  <span className="text-blue-500 mr-2">
+                    <WalletOutlined />
+                  </span>
                   Savings rate: 23%
                 </div>
               </Card>

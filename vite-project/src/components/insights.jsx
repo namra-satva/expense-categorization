@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import { Layout, Button, Card, Typography, Row, Col } from "antd";
+import { Layout, Button, Card, Typography, Row, Col, Space, Badge } from "antd";
 import {
   CalendarOutlined,
   BarChartOutlined,
   LineChartOutlined,
   PieChartOutlined,
   DownloadOutlined,
-  RightOutlined
+  RightOutlined,
+  InfoCircleOutlined,
+  ExclamationCircleOutlined,
+  CheckCircleOutlined
 } from "@ant-design/icons";
 import {
   BarChart,
@@ -22,7 +25,7 @@ import {
   Cell,
 } from "recharts";
 
-const { Title, Text } = Typography;
+const { Title, Text,Paragraph } = Typography;
 const { Content } = Layout;
 
 const piedata = [
@@ -311,6 +314,106 @@ const Insights = () => {
 </>
 
 )}
+        {activeTab === "AI Insights" && (
+          <div className="mt-2 py-0">
+            <Row gutter={24} className="min-h-full py-0">
+              {/* AI-Generated Insights */}
+              <Col span={12}>
+                <Card className="rounded-lg h-full" bodyStyle={{ padding: '0px' }}>
+                  <div className="mb-4">
+                    <Title level={4} className="font-bold m-0">AI-Generated Insights</Title>
+                    <Text type="secondary">Smart analysis of your financial data</Text>
+                  </div>
+
+                  <Space direction="vertical" className="w-full p-0" size="middle">
+                    <Card className="rounded-lg p-0" style={{ border: '1px solid #f0f0f0' }}>
+                      <div className="flex items-start">
+                        <div className="mr-4 flex-shrink-0">
+                          <Badge 
+                            count={<InfoCircleOutlined style={{ color: '#1890ff' }} />} 
+                            style={{ backgroundColor: '#e6f7ff', borderColor: '#e6f7ff' }}
+                          />
+                        </div>
+                        <div>
+                          <Paragraph strong className="m-0">Increase in entertainment spending</Paragraph>
+                          <Paragraph type="secondary" className="m-0">
+                            Your entertainment spending has increased by 12% compared to last month.
+                          </Paragraph>
+                        </div>
+                      </div>
+                    </Card>
+
+                    <Card className="rounded-lg" style={{ border: '1px solid #f0f0f0' }}>
+                      <div className="flex items-start">
+                        <div className="mr-4 flex-shrink-0">
+                          <Badge 
+                            count={<ExclamationCircleOutlined style={{ color: '#faad14' }} />} 
+                            style={{ backgroundColor: '#fffbe6', borderColor: '#fffbe6' }}
+                          />
+                        </div>
+                        <div>
+                          <Paragraph strong className="m-0">Shopping anomaly detected</Paragraph>
+                          <Paragraph type="secondary" className="m-0">
+                            Unusual transaction of $240 at 'Tech Gadgets Store' on July 18.
+                          </Paragraph>
+                        </div>
+                      </div>
+                    </Card>
+
+                    <Card className="rounded-lg" style={{ border: '1px solid #f0f0f0' }}>
+                      <div className="flex items-start">
+                        <div className="mr-4 flex-shrink-0">
+                          <Badge 
+                            count={<CheckCircleOutlined style={{ color: '#52c41a' }} />} 
+                            style={{ backgroundColor: '#f6ffed', borderColor: '#f6ffed' }}
+                          />
+                        </div>
+                        <div>
+                          <Paragraph strong className="m-0">Savings opportunity</Paragraph>
+                          <Paragraph type="secondary" className="m-0">
+                            You could save $45/month by consolidating your subscription services.
+                          </Paragraph>
+                        </div>
+                      </div>
+                    </Card>
+                  </Space>
+
+                  <Button 
+                    type="primary" 
+                    className="w-full mt-6" 
+                    size="large"
+                  >
+                    Get More Insights <RightOutlined />
+                  </Button>
+                </Card>
+              </Col>
+
+              {/* Spending Anomalies */}
+              <Col span={12}>
+                <Card className="rounded-lg h-full" bodyStyle={{ padding: '28px' }}>
+                  <div className="mb-4">
+                    <Title level={4} className="font-bold m-0">Spending Anomalies</Title>
+                    <Text type="secondary">Unusual transactions detected by AI</Text>
+                  </div>
+
+                  <div className="flex flex-col items-center justify-center py-10">
+                    <div className="bg-blue-50 rounded-full p-4 mb-6">
+                      <InfoCircleOutlined style={{ fontSize: '28px', color: '#1890ff' }} />
+                    </div>
+                    <Title level={4} className="font-medium text-center mb-2">Anomaly Detection Active</Title>
+                    <Paragraph className="text-center text-gray-500 mx-auto" style={{ maxWidth: '80%' }}>
+                      Our AI is monitoring your transactions for unusual spending patterns. 
+                      Any anomalies will be displayed here.
+                    </Paragraph>
+                  </div>
+
+                  <Button className="w-full">Adjust Sensitivity</Button>
+                </Card>
+              </Col>
+            </Row>
+          </div>
+        )}
+
     </Layout>
 
   );
